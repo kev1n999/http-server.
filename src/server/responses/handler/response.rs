@@ -8,13 +8,16 @@ use crate::types::server::context::Context;
 
 pub fn response_by_route(ctx: &mut Context) {
     for route in routes() {
-        if route.path == ctx.request.path && route.method.contains(&ctx.request.method) {
-            _ = (route.handler)(ctx);
-            break;
-        } else {
-            _ = response_method_not_allowed(ctx);
-            break;
+        if route.path != ctx.request.path {
+            continue;
         }
+
+        if !route.method.contains(&ctx.request.method) {
+            response_method_not_allowed(ctx);
+        }
+
+        _ = (route.handler)(ctx);
+        return;
     }
 }
 
