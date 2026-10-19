@@ -10,17 +10,17 @@ pub enum ContentType {
 
 impl ContentType {
     // convert &str content-type to equivalent enum variant
-    pub fn from_str(content_type: &str) -> Option<Self> { 
+    pub fn from_str(content_type: &str) -> Option<Self> {
         match content_type.trim().to_lowercase().as_str() {
             "text/plain" => Some(ContentType::Text),
             "text/html" => Some(ContentType::Html),
             "text/javascript" => Some(ContentType::JavaScript),
             "application/json" => Some(ContentType::Json),
             "text/css" => Some(ContentType::Css),
-            _ => None
+            _ => None,
         }
     }
-    // convert enum variant of content-type to &str 
+    // convert enum variant of content-type to &str
     pub fn to_str(&self) -> &'static str {
         match self {
             ContentType::Text => "text/plain",

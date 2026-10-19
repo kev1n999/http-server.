@@ -1,4 +1,7 @@
-use crate::types::{client::request::Request, server::{context::Context, response::Response}};
+use crate::types::{
+    client::request::Request,
+    server::{context::Context, response::Response},
+};
 
 use std::io::Write;
 use std::net::TcpStream;

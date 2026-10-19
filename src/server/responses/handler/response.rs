@@ -1,16 +1,18 @@
+use crate::server::responses::default::method_not_allowed::response_method_not_allowed;
 use crate::server::responses::default::response_404::response_404;
 use crate::server::responses::handler::request::request_is_file;
 use crate::server::routes::routes::{routes, static_files};
 
+use crate::types::headers::method::Method;
 use crate::types::server::context::Context;
-use crate::types::{
-    headers::method::Method,
-};
 
 pub fn response_by_route(ctx: &mut Context) {
     for route in routes() {
-        if route.path == ctx.request.path && route.method == ctx.request.method {
+        if route.path == ctx.request.path && route.method.contains(&ctx.request.method) {
             _ = (route.handler)(ctx);
+            break;
+        } else {
+            _ = response_method_not_allowed(ctx);
             break;
         }
     }

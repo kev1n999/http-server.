@@ -1,4 +1,4 @@
-use std::collections::HashMap; 
+use std::collections::HashMap;
 
 // Http Response Structure to server send
 #[derive(Debug)]

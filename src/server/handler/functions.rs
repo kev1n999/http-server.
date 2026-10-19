@@ -1,6 +1,11 @@
-use crate::{parser::{json::parse_json, r#static::parse_static_file}, types::{
-    client::request::Request, headers::{content_type::ContentType, status_code::StatusCode}, server::{context::Context, response::Response}
-}};
+use crate::{
+    parser::{json::parse_json, r#static::parse_static_file},
+    types::{
+        client::request::Request,
+        headers::{content_type::ContentType, status_code::StatusCode},
+        server::{context::Context, response::Response},
+    },
+};
 
 use serde::Deserialize;
 
@@ -27,7 +32,7 @@ pub fn sum(ctx: &mut Context) -> Result<(), std::io::Error> {
         x: i32,
         y: i32,
     }
-    
+
     let json: Sum = parse_json(&body)?;
     let sum = json.x + json.y;
 

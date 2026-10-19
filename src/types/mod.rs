@@ -1,3 +1,3 @@
-pub mod server; 
-pub mod client; 
+pub mod client;
 pub mod headers;
+pub mod server;

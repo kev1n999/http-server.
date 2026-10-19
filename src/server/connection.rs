@@ -1,12 +1,9 @@
 use crate::{
-    parser::request::parse_request,
-    server::responses::handler::response::response_handler, types::server::context::Context,
+    parser::request::parse_request, server::responses::handler::response::response_handler,
+    types::server::context::Context,
 };
 
-use std::{
-    io::{Read},
-    net::{TcpStream},
-};
+use std::{io::Read, net::TcpStream};
 
 // function to handle http connections and get the requests
 pub fn handle_connection(stream: &mut TcpStream) {

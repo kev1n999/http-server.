@@ -1,7 +1,4 @@
-use crate::types::{
-    client::request::Request,
-    headers::method::Method,
-};
+use crate::types::{client::request::Request, headers::method::Method};
 
 use std::collections::HashMap;
 
@@ -14,7 +11,7 @@ impl fmt::Display for Request {
         writeln!(f, "Method: {}", self.method)?;
 
         writeln!(f, "Headers:")?;
-        
+
         for (key, val) in &self.headers {
             writeln!(f, "{}: {}", key, val)?;
         }
@@ -54,7 +51,7 @@ pub fn parse_request(lines: Vec<String>) -> Option<Request> {
             match header_lines.split_once(':') {
                 Some((key, val)) => {
                     headers.insert(key.trim().to_string(), val.trim().to_string());
-                },
+                }
                 None => eprintln!("An error ocurred to parse the request header!"),
             }
         } else {

@@ -24,7 +24,7 @@ impl Method {
             "put" => Method::Put,
             "patch" => Method::Patch,
             "delete" => Method::Delete,
-            _ => Method::Invalid,             
+            _ => Method::Invalid,
         }
     }
 }

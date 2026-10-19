@@ -1,9 +1,9 @@
-use std::collections::HashMap; 
+use std::collections::HashMap;
 
 use crate::types::headers::method::Method;
 
 // Http Request Structure to parse
-#[derive(Debug, PartialEq)]
+#[derive(Debug)]
 pub struct Request {
     pub version: String,
     pub path: String,
