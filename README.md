@@ -7,40 +7,27 @@ A simple HTTP server written in Rust for learning and study purposes.
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/kev1n999/http-server2
-cd http-server2
+git clone https://github.com/kev1n999/http-server.
+cd http-server.
 ```
 
-### 2. Configure the Server Address
-
-Edit `src/main.rs` and set the desired host and port:
-
-```rust
-const HOST: &str = "127.0.0.1:8000";
-```
-
-The default address is `127.0.0.1:8000`.
-
-### 3. Build and Run the Server
+### 2. Build the docker file and run
 
 ```bash
-cargo build
-cargo run
+docker build -t http-server .
+docker run -d \
+    --name http-server \
+    -p 8000:8080 \
+    http-server
 ```
 
-Or simply:
+### 3. Check
 
 ```bash
-cargo run
+docker ps
+docker logs -f http-server
 ```
-
-### 4. Open the Server in Your Browser
-
-Navigate to:
-
-```text
-http://localhost:8000
-```
+---
 
 ## Registering Routes
 
