@@ -22,8 +22,4 @@ impl AllowedMethods {
             Self::Multiple(methods) => methods.contains(method),
         }
     }
-
-    pub fn method_not_allowed(self, method: &Method) {
-        if !self.contains(method) {}
-    }
 }
